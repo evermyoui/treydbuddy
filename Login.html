@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreydBuddy • Log In</title>
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
 <body>
-    
+
+  <header class="site-header">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <a class="brand" href="#" aria-label="TreydBuddy home">
+       <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
+        <div>
+          <div class="title">TreydBuddy</div>
+          <div class="subtitle">Event & Attendance</div>
+        </div>
+      </a>
+      <div class="links" aria-hidden="true">
+        <span class="pill">BPSU • TREYD</span>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="card" aria-labelledby="loginTitle">
+      <div class="card-head">
+        <span class="pill" aria-hidden="true">Welcome back</span>
+      </div>
+      <div class="card-body">
+        <h1 id="loginTitle" class="visually-hidden">Log in to TreydBuddy</h1>
+
+        
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email or Student ID</label>
+            <input class="input" id="email" name="email" type="text" inputmode="email" autocomplete="username" placeholder="e.g. juandelacruz@bpsu.edu.ph" required aria-describedby="emailHint" />
+            <p id="emailHint" class="hint">Use your campus email or student number.</p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+          </div>
+
+          <div class="row">
+            <label class="checkbox"><input id="remember" type="checkbox"/> Remember me</label>
+            <a class="tiny-link" href="#">Forgot password?</a>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Log In</button>
+          <div class="divider">or</div>
+          <button class="btn btn-outline" type="button" id="createAccount">Create an account</button>
+          <button class="btn btn-ghost" type="button" id="continueGuest" aria-label="Continue as a guest (view events only)">Continue as guest</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container meta">
+      <small>© <span id="year"></span> TreydBuddy • For BPSU‑TREYD students</small>
+      <nav class="links" aria-label="Footer">
+        <a href="#">About</a>
+        <a href="#">Help Center</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
