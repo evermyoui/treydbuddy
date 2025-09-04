@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Conference 2025",
+    "date": "2025-09-15",
+    "location": "BPSU Auditorium"
+  },
+  {
+    "id": 2,
+    "title": "Music Festival",
+    "date": "2025-10-01",
+    "location": "City Park"
+  }
+]
