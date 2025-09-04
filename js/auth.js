@@ -1,4 +1,20 @@
 // ========================
+// Fetch users.json and store in localStorage if not present
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("users")) {
+    fetch("data/users.json")
+      .then(response => response.json())
+      .then(users => {
+        localStorage.setItem("users", JSON.stringify(users));
+      })
+      .catch(error => {
+        console.error("Failed to load users.json:", error);
+      });
+  }
+});
+
+// ========================
 // auth.js (mock auth)
 // ========================
 function login(username, password) {
@@ -61,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const result = login(email, password);
 
       if (result.success) {
-        alert("✅ " + result.message);
         window.location.href = "dashboard.html"; // redirect to dashboard
       } else {
         alert("❌ " + result.message);
