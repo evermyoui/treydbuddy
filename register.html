@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreydBuddy • Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
+        <div>
+          <div class="title">TreydBuddy</div>
+          <div class="subtitle">Event & Attendance</div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="card-head"><span class="pill">Create an Account</span></div>
+      <div class="card-body">
+        <form id="registrationForm">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input class="input" id="fullName" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input class="input" id="password" type="password" minlength="6" required />
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <input class="input" id="confirmPassword" type="password" required />
+          </div>
+          
+
+          <button class="btn btn-primary" type="submit">Register</button>
+          <div class="divider">or</div>
+          <a class="btn btn-ghost" href="login.html">Already have an account? Log In</a>
+          <p id="regMsg" class="hint"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container meta">
+      <small>© <span id="year"></span> TreydBuddy • For BPSU-TREYD students</small>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
