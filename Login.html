@@ -9,50 +9,53 @@
 <body>
   <!-- HEADER -->
   <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <a class="brand" href="#" aria-label="TreydBuddy home">
         <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
         <div>
           <div class="title">TreydBuddy</div>
           <div class="subtitle">Event & Attendance</div>
         </div>
       </a>
-      <div class="links">
+      <div class="links" aria-hidden="true">
         <span class="pill">BPSU • TREYD</span>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main>
-    <section class="card">
-      <div class="card-head"><span class="pill">Welcome back</span></div>
+    <section class="card" aria-labelledby="loginTitle">
+      <div class="card-head"><span class="pill" aria-hidden="true">Welcome back</span></div>
       <div class="card-body">
-        <form id="loginForm">
+        <h1 id="loginTitle" class="visually-hidden">Log in to TreydBuddy</h1>
+
+        <form id="loginForm" novalidate>
           <!-- Email -->
           <div class="field">
             <label for="email">Email</label>
-            <input class="input" id="email" type="email" placeholder="e.g. juandelacruz@bpsu.edu.ph" required />
+            <input class="input" id="email" name="email" type="email"
+                   autocomplete="username"
+                   placeholder="e.g. juandelacruz@bpsu.edu.ph" required />
           </div>
+
           <!-- Password -->
           <div class="field">
             <label for="password">Password</label>
-            <input class="input" id="password" type="password" placeholder="••••••••" required />
-          </div>
-          <!-- Remember me + Forgot password -->
-          <div class="row">
-            <label class="checkbox"><input id="remember" type="checkbox"/> Remember me</label>
-            <a class="tiny-link" href="#">Forgot password?</a>
+            <input class="input" id="password" name="password" type="password"
+                   autocomplete="current-password" placeholder="••••••••" required />
           </div>
 
-          <!-- Buttons -->
+          <!-- Forgot password -->
+          <div class="row" style="justify-content:flex-end">
+            <a class="tiny-link" href="forgot.html">Forgot password?</a>
+          </div>
+
+      
           <button class="btn btn-primary" type="submit">Log In</button>
           <div class="divider">or</div>
-          <!-- Link to registration page -->
-          <a class="btn btn-outline" href="register.html">Create an account</a>
+          <a class="btn btn-outline" href="register.html" role="button" id="createAccount">Create an account</a>
 
-          <!-- Flash message -->
-          <p id="flash" class="hint"></p>
         </form>
       </div>
     </section>
@@ -62,9 +65,13 @@
   <footer class="site-footer">
     <div class="container meta">
       <small>© <span id="year"></span> TreydBuddy • For BPSU-TREYD students</small>
+      <nav class="links" aria-label="Footer">
+        <a href="#">About</a>
+        <a href="#">Help Center</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </nav>
     </div>
   </footer>
-
-
 </body>
 </html>
