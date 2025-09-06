@@ -106,3 +106,148 @@ font-weight:700; letter-spacing:.3px; cursor:pointer; transition: transform .04s
   display: block;      
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.2)); 
 }
+
+/* ===========================
+   DASHBOARD ENHANCEMENTS
+   =========================== */
+
+/* Smaller input option (for toolbars) */
+.input--sm { padding: .6rem .8rem; font-size: .95rem; }
+
+/* Dashboard container tweaks */
+.card--dashboard .card-body { display: grid; gap: 1.5rem; }
+
+/* Toolbar (top-right actions) */
+.toolbar { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.toolbar__right { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+
+/* Stats bar */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: .75rem;
+}
+@media (max-width: 900px) { .stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 520px) { .stats { grid-template-columns: 1fr; } }
+
+.stat {
+  background: linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.15));
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 16px;
+  padding: .9rem 1rem;
+  box-shadow: var(--shadow);
+}
+.stat__label { color: var(--muted); font-size: .85rem; }
+.stat__value { font-size: 1.6rem; font-weight: 800; margin-top: .15rem; }
+
+/* Grid helpers */
+.grid { display:grid; gap: 1rem; }
+.grid--2 { grid-template-columns: 1.2fr .8fr; }
+@media (max-width: 1024px) { .grid--2 { grid-template-columns: 1fr; } }
+
+/* Panels inside the big card */
+.panel { border: 1px solid rgba(148,163,184,.14); border-radius: 16px; overflow: hidden; }
+.panel__head {
+  display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+  padding: .9rem 1rem; background: rgba(2,6,23,.25); border-bottom: 1px solid rgba(148,163,184,.12);
+}
+.panel__title { margin:0; font-size: 1.05rem; }
+.panel__actions { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+
+/* Smaller button rows (for action cells) */
+.btn-row { display:flex; gap:.35rem; flex-wrap:wrap; }
+
+/* Subpanels (Generate QR / Simulate Scan) */
+.subpanel { padding: 1rem; border-top: 1px dashed rgba(148,163,184,.18); }
+.subpanel__title { margin: 0 0 .5rem 0; font-size: 1rem; }
+
+/* Tables */
+.table-wrap { overflow:auto; }
+.table { width:100%; border-collapse: collapse; }
+.table th, .table td { padding: .7rem .6rem; border-bottom: 1px solid rgba(148,163,184,.12); text-align: left; }
+.table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: color-mix(in oklab, var(--card) 85%, black);
+  border-bottom: 1px solid rgba(148,163,184,.25);
+}
+.table--hover tbody tr:hover { background: rgba(148,163,184,.08); }
+
+/* Role tag */
+.tag {
+  display:inline-flex; align-items:center; padding:.2rem .5rem; border-radius:999px;
+  background: rgba(148,163,184,.12); border:1px solid rgba(148,163,184,.25); font-size:.85rem;
+}
+.tag--warn { background: rgba(234,179,8,.12); border-color: rgba(234,179,8,.35); }
+
+/* QR preview box */
+.qr-preview {
+  margin-top: .75rem;
+   display:flex;
+    align-items:center; 
+    justify-content:center;
+  min-height: 160px; border: 1px dashed rgba(148,163,184,.25); border-radius: 12px;
+  background: rgba(2,6,23,.25);
+}
+.qr-preview img { 
+  display:block; 
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+}
+
+.row--gap { gap: .5rem; }
+
+
+/* ===========================
+   ADMIN DASHBOARD STYLES
+   =========================== */
+body.admin .container {
+  width: min(1280px, 94%);
+}
+
+/* Make the main dashboard card much wider */
+body.admin .card--dashboard {
+  width: min(1320px, 96%);
+  margin-inline: auto;
+}
+
+/* Increase spacing inside the main dashboard card */
+body.admin .card--dashboard .card-body {
+  gap: 2rem; 
+}
+
+/* Two-column layouts */
+body.admin .grid--2 {
+  grid-template-columns: 1.6fr 1fr; /* was 1.2fr .8fr */
+}
+
+/* Stats tiles*/
+body.admin .stats {
+  gap: 1rem;
+}
+
+/* Panels */
+body.admin .panel__head { padding: 1.1rem 1.2rem; }
+body.admin .subpanel    { padding: 1.1rem 1.2rem; }
+
+/* Tables */
+body.admin .table th,
+body.admin .table td {
+  padding: .9rem .8rem; 
+}
+
+/* Inputs/buttons in toolbars */
+body.admin .input--sm {
+  padding: .7rem .9rem;
+  font-size: 1rem;
+}
+
+/* QR preview box*/
+body.admin .qr-preview { min-height: 200px; }
+
+/* Extra-wide monitors */
+@media (min-width: 1600px) {
+  body.admin .container { width: min(1400px, 92%); }
+  body.admin .card--dashboard { width: min(1440px, 92%); }
+  body.admin .grid--2 { grid-template-columns: 1.7fr 1fr; }
+}

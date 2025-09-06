@@ -6,115 +6,92 @@
   <title>TreydBuddy • Admin Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<script src="auth.js"></script>
+<body class="admin">
   <!-- Header -->
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#">
+      <a class="brand" href="AdminDashboard.html">
         <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
-        <div>
-          <div class="title">TreydBuddy</div>
-          <div class="subtitle">Admin Dashboard</div>
-        </div>
+        <div><div class="title">TreydBuddy</div><div class="subtitle">Admin Dashboard</div></div>
       </a>
-      <div class="links">
-        <span id="who" class="pill"></span>
-        <a class="tiny-link" href="#" id="logout">Log out</a>
-      </div>
+      <div class="links"><a class="tiny-link" href="Login.html">Log out</a></div>
     </div>
   </header>
 
+  <!-- Admin tools -->
   <main>
-    <section class="card" style="width:min(1100px, 96%)">
+    <section class="card card--dashboard">
       <div class="card-head">
-        <span class="pill">Admin Tools</span>
+        <div class="toolbar">
+          <span class="pill">Admin Tools</span>
+          <div class="toolbar__right">
+            <a class="btn btn-outline" href="ticketing-qr.html">Open Ticketing & QR</a>
+          </div>
+        </div>
       </div>
-      <div class="card-body" style="display:grid; gap:2rem">
 
-        <!-- A) USER MANAGEMENT (3.0 / 3.1 / 3.2 / 3.3) -->
-        <section aria-labelledby="umTitle">
-          <h2 id="umTitle">User Management</h2>
-          <p class="hint">Add, update, or delete users (mocked in localStorage). Admin-only access.</p>
-          <div class="row" style="gap:.5rem; margin:.5rem 0;">
-            <button class="btn btn-outline" id="addUserBtn">Add User</button>
-            <button class="btn btn-outline" id="refreshUsers">Refresh</button>
+      <div class="card-body">
+        <!-- 3.0 User Management (UI only) -->
+        <section class="panel" aria-labelledby="umTitle">
+          <div class="panel__head">
+            <h2 id="umTitle" class="panel__title">User Management</h2>
+            <div class="panel__actions">
+              <button class="btn btn-outline" type="button">Add User</button>
+              <button class="btn btn-outline" type="button">Refresh</button>
+            </div>
           </div>
-
-          <div style="overflow:auto;">
-            <table style="width:100%; border-collapse:collapse;">
-              <thead>
-                <tr style="text-align:left; border-bottom:1px solid rgba(148,163,184,.25);">
-                  <th style="padding:.5rem;">Full Name</th>
-                  <th style="padding:.5rem;">Email</th>
-                  <th style="padding:.5rem;">Role</th>
-                  <th style="padding:.5rem;">Actions</th>
+          <div class="table-wrap">
+            <table class="table table--hover">
+              <thead><tr><th>Full Name</th><th>Email</th><th>Role</th><th style="width:140px">Actions</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Admin Sample</td><td>admin@bpsu.edu.ph</td>
+                  <td><span class="tag tag--warn">admin</span></td>
+                  <td><div class="btn-row"><button class="btn btn-ghost" type="button">Edit</button><button class="btn btn-ghost" type="button">Delete</button></div></td>
                 </tr>
-              </thead>
-              <tbody id="userRows"></tbody>
+              </tbody>
             </table>
           </div>
         </section>
 
-        <!-- B) QR SCANNER PLACEHOLDER (2.1) -->
-        <section aria-labelledby="qrTitle">
-          <h2 id="qrTitle">QR Scanner (Placeholder)</h2>
-          <p class="hint">
-            Description here <code>Description  heree </code>
-          </p>
-          <div class="field">
-            <label for="scanInput">QR Payload</label>
-            <input class="input" id="scanInput" placeholder="e.g. ev-2025-0001|juandelacruz@bpsu.edu.ph" />
+        <!-- 2.1 QR Scanner (placeholder) -->
+        <section class="panel" aria-labelledby="qrTitle">
+          <div class="panel__head"><h2 id="qrTitle" class="panel__title">QR Scanner (Placeholder)</h2></div>
+          <div class="subpanel">
+            <p class="hint">For demo only: backend will attach a real camera scanner here.</p>
+            <div class="grid grid--2">
+              <input class="input" placeholder="ev-2025-0001|juandelacruz@bpsu.edu.ph" />
+              <div class="row row--gap">
+                <button class="btn btn-primary" type="button">Check-in</button>
+                <button class="btn btn-outline" type="button">Clear</button>
+              </div>
+            </div>
           </div>
-          <div class="row" style="gap:.5rem">
-            <button class="btn btn-primary" id="scanBtn">Simulate Scan & Check-In</button>
-            <button class="btn btn-outline" id="clearScan">Clear</button>
-          </div>
-          <p id="scanMsg" class="hint"></p>
         </section>
 
-        <!-- C) DATA VIEWER: EVENT ATTENDANCE (2.2) -->
-        <section aria-labelledby="dvTitle">
-          <h2 id="dvTitle">Event Attendance Viewer</h2>
-          <p class="hint">Choose an event to view who has checked in.</p>
-          <div class="row" style="gap:.5rem; margin:.5rem 0;">
-            <select id="eventFilter" class="input" style="max-width:360px">
-              <!-- Optional -->
-            </select>
-            <button class="btn btn-outline" id="refreshAttendance">Refresh</button>
-            <button class="btn btn-outline" id="seedEvents">Seed Demo Events</button>
+        <!-- 2.2 Data Viewer (Attendance) -->
+        <section class="panel" aria-labelledby="attTitle">
+          <div class="panel__head">
+            <h2 id="attTitle" class="panel__title">Attendance</h2>
+            <div class="panel__actions">
+              <select class="input input--sm"><option>All events</option></select>
+              <button class="btn btn-outline" type="button">Refresh</button>
+            </div>
           </div>
-
-          <div style="overflow:auto;">
-            <table style="width:100%; border-collapse:collapse;">
-              <thead>
-                <tr style="text-align:left; border-bottom:1px solid rgba(148,163,184,.25);">
-                  <th style="padding:.5rem;">Event ID</th>
-                  <th style="padding:.5rem;">Student</th>
-                  <th style="padding:.5rem;">Email</th> 
-                  <th style="padding:.5rem;">Checked In At</th>
-                </tr>
-              </thead>
-              <tbody id="attRows"></tbody>
+          <div class="table-wrap">
+            <table class="table table--hover">
+              <thead><tr><th>Event ID</th><th>Student</th><th>Email</th><th>Checked In At</th></tr></thead>
+              <tbody>
+                <tr><td>ev-2025-0001</td><td>Juan Dela Cruz</td><td>juandelacruz@bpsu.edu.ph</td><td>—</td></tr>
+              </tbody>
             </table>
           </div>
         </section>
-
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container meta">
-      <small>© <span id="year"></span> TreydBuddy • For BPSU-TREYD students</small>
-      <nav class="links">
-        <a href="#">About</a>
-        <a href="#">Help Center</a>
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-      </nav>
-    </div>
-  </footer>
-
-  
+  <footer class="site-footer"><div class="container meta"><small>© 2025 TreydBuddy • For BPSU-TREYD students</small></div></footer>
 </body>
 </html>

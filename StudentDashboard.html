@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreydBuddy • Student Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script src="auth.js"></script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="StudentDashboard.html">
+        <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
+        <div><div class="title">TreydBuddy</div><div class="subtitle">Student Dashboard</div></div>
+      </a>
+      <div class="links"><a class="tiny-link" href="Login.html">Log out</a></div>
+    </div>
+  </header>
+
+  <!-- Dashboard -->
+  <main>
+    <section class="card card--dashboard" style="width:min(1100px,96%)">
+      <div class="card-head"><span class="pill">Welcome</span></div>
+
+      <div class="card-body">
+        <!-- 4.1 Upcoming Events -->
+        <section class="panel" aria-labelledby="upTitle">
+          <div class="panel__head"><h2 id="upTitle" class="panel__title">Upcoming Events</h2></div>
+          <div class="table-wrap">
+            <table class="table table--hover">
+              <thead><tr><th>Event</th><th>Date</th><th>Event ID</th><th style="width:120px">Actions</th></tr></thead>
+              <tbody>
+                <!-- sample static rows (backend will load real events) -->
+                <tr>
+                  <td>BPSU TREYD Orientation</td><td>2025-10-12</td><td>ev-2025-0001</td>
+                  <td><a class="btn btn-outline" href="EventDetails.html">Details</a></td>
+                </tr>
+                <tr>
+                  <td>Hackfest</td><td>2025-10-13</td><td>ev-2025-0002</td>
+                  <td><a class="btn btn-outline" href="EventDetails.html">Details</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 4.2 My Tickets -->
+        <section class="panel" aria-labelledby="tixTitle">
+          <div class="panel__head"><h2 id="tixTitle" class="panel__title">My Tickets</h2></div>
+          <div class="table-wrap">
+            <table class="table table--hover">
+              <thead><tr><th>Event</th><th>Event ID</th><th>Status</th><th>Purchased</th></tr></thead>
+              <tbody>
+                <tr><td class="hint" colspan="4">No tickets yet. Buy from the Event Details page.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container meta"><small>© 2025 TreydBuddy • For BPSU-TREYD students</small></div></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreydBuddy • Ticketing & QR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script src="auth.js"></script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="AdminDashboard.html">
+        <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
+        <div><div class="title">TreydBuddy</div><div class="subtitle">Ticketing & QR Generation</div></div>
+      </a>
+      <div class="links"><a class="tiny-link" href="AdminDashboard.html">Back to Admin</a></div>
+    </div>
+  </header>
+
+  <!-- Form shell -->
+  <main>
+    <section class="card" style="width:min(720px,96%)">
+      <div class="card-head"><span class="pill">Create Event & Generate QR (UI only)</span></div>
+      <div class="card-body">
+        <!-- NOTE: Backend will save event + generate QR image -->
+        <form>
+          <div class="grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label for="eventId">Event ID</label><input id="eventId" class="input" placeholder="e.g. ev-2025-0001" /></div>
+            <div class="field"><label for="eventDate">Event Date</label><input id="eventDate" class="input" type="date" /></div>
+          </div>
+          <div class="field"><label for="eventName">Event Name</label><input id="eventName" class="input" placeholder="e.g. BPSU TREYD Orientation" /></div>
+
+          <div class="row" style="gap:.5rem">
+            <button class="btn btn-primary" type="button">Save Event</button>
+            <button class="btn btn-outline" type="button">Generate QR</button>
+            <a class="btn btn-outline" href="#" role="button">Download QR</a>
+          </div>
+
+          <div class="qr-preview" style="margin-top:1rem">
+            <span class="hint">QR preview will appear here after integration.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container meta"><small>© 2025 TreydBuddy • For BPSU-TREYD students</small></div></footer>
+</body>
+</html>

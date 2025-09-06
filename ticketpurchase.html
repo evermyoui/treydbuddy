@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TreydBuddy • Ticket Purchase</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script src="auth.js"></script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="EventDetails.html">
+        <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
+        <div><div class="title">TreydBuddy</div><div class="subtitle">Ticket Purchase</div></div>
+      </a>
+      <div class="links"><a class="tiny-link" href="StudentDashboard.html">Back to Dashboard</a></div>
+    </div>
+  </header>
+
+  <!-- Purchase form (UI only) -->
+  <main>
+    <section class="card" style="width:min(720px,96%)">
+      <div class="card-head"><span class="pill">Event: BPSU TREYD Orientation</span></div>
+      <div class="card-body">
+        <!-- NOTE: Backend will compute totals, create ticket + QR, then show in “My Tickets” -->
+        <form novalidate>
+          <div class="field">
+            <label for="buyerName">Full Name</label>
+            <input id="buyerName" class="input" placeholder="e.g. Juan Dela Cruz" />
+          </div>
+
+          <div class="field">
+            <label for="buyerEmail">Email</label>
+            <input id="buyerEmail" class="input" type="email" placeholder="e.g. juandelacruz@bpsu.edu.ph" />
+          </div>
+
+          <div class="grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field">
+              <label>Ticket Type</label>
+              <div class="row row--gap" style="justify-content:flex-start">
+                <label class="checkbox"><input type="radio" name="type"> Regular</label>
+                <label class="checkbox"><input type="radio" name="type"> VIP</label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="qty">Quantity</label>
+              <input id="qty" class="input" type="number" min="1" placeholder="1" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Summary</label>
+            <p class="hint">Total will be computed by backend/JS.</p>
+          </div>
+
+          <div class="row" style="margin-top:.5rem">
+            <button class="btn btn-primary" type="button">Confirm Purchase</button>
+            <a class="btn btn-outline" href="EventDetails.html">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container meta"><small>© 2025 TreydBuddy • For BPSU-TREYD students</small></div></footer>
+</body>
+</html>

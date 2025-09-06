@@ -6,10 +6,12 @@
   <title>TreydBuddy • Register</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+<script src="auth.js"></script>
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#">
+      <a class="brand" href="Login.html">
         <img src="Logo.png" alt="TreydBuddy Logo" class="logo">
         <div>
           <div class="title">TreydBuddy</div>
@@ -19,33 +21,36 @@
     </div>
   </header>
 
+  <!-- Registration Card -->
   <main>
     <section class="card">
       <div class="card-head"><span class="pill">Create an Account</span></div>
       <div class="card-body">
-        <form id="registrationForm">
+        <!-- NOTE: Backend will save user and redirect to Login -->
+        <form novalidate>
           <div class="field">
             <label for="fullName">Full Name</label>
-            <input class="input" id="fullName" required />
+            <input class="input" id="fullName" name="fullName" type="text" placeholder="e.g. Juan Dela Cruz" required />
           </div>
+
           <div class="field">
             <label for="email">Email</label>
-            <input class="input" id="email" type="email" required />
+            <input class="input" id="email" name="email" type="email" placeholder="e.g. juandelacruz@bpsu.edu.ph" required />
           </div>
+
           <div class="field">
             <label for="password">Password</label>
-            <input class="input" id="password" type="password" minlength="6" required />
+            <input class="input" id="password" name="password" type="password" placeholder="••••••••" minlength="6" required />
           </div>
+
           <div class="field">
             <label for="confirmPassword">Confirm Password</label>
-            <input class="input" id="confirmPassword" type="password" required />
+            <input class="input" id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••" required />
           </div>
-          
 
-          <button class="btn btn-primary" type="submit">Register</button>
+          <button class="btn btn-primary" type="button">Register</button>
           <div class="divider">or</div>
-          <a class="btn btn-ghost" href="login.html">Already have an account? Log In</a>
-          <p id="regMsg" class="hint"></p>
+          <a class="btn btn-ghost" href="Login.html">Already have an account? Log In</a>
         </form>
       </div>
     </section>
@@ -53,10 +58,8 @@
 
   <footer class="site-footer">
     <div class="container meta">
-      <small>© <span id="year"></span> TreydBuddy • For BPSU-TREYD students</small>
+      <small>© 2025 TreydBuddy • For BPSU-TREYD students</small>
     </div>
   </footer>
-
-  
 </body>
 </html>
